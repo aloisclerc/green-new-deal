@@ -1,4 +1,54 @@
 body {
-    background: yellow;
-    color: purple;
+    /* background: #002e10; */
+    background: linear-gradient(90deg, rgba(72,102,61,0.8) 23%, rgba(168,168,168,0.8) 89%), url("https://images.unsplash.com/photo-1447927228194-acfa3d1b45c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+    background-size: cover;
+    font-family: 'Lato', sans-serif;
+    background-attachment: fixed;
+}
+
+.errorMessage {
+    background: #FFF;
+    padding: 10% 5%;
+    margin: 30% auto;
+    border-radius: 25px;
+}
+
+.navbar {
+    font-size: 20px;
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+.landing-background {
+    background:#c6e377;
+    width: 80%;
+    height: 100rem;
+}
+
+.jumbotron {
+    color: #fff;
+    background: #36622b;
+    text-align: center;
+    font-size: 100px;
+    padding: 15% 0px 15% 0px;
+    width: 100%;
+    margin: 0;
+}
+
+h1 {
+    font-size: 150px;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 50px;
+    text-align: center;
+    padding: 5% 0% 0% 0%;
+}
+
+.body-text {
+    font-size: 22px;
+    padding: 5% 12%;
 }

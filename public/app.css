@@ -11,6 +11,7 @@ body {
     padding: 10% 5%;
     margin: 30% auto;
     border-radius: 25px;
+    font-size: 50px;
 }
 
 .navbar {
@@ -45,10 +46,24 @@ h1 {
 h2 {
     font-size: 50px;
     text-align: center;
-    padding: 5% 0% 0% 0%;
+    padding: 3% 0% 0% 0%;
 }
 
 .body-text {
     font-size: 22px;
-    padding: 5% 12%;
+    padding: 3% 12%;
+}
+
+.contactButton {
+    color: #fff !important;
+    background: #36622b;
+    border-radius: 15px;
+}
+
+.new-background {
+    height: 30%;
+    background: #fff;
+    padding: 5% 2%;
+    margin: 10% 0 0 0;
+    border-radius: 15px;
 }

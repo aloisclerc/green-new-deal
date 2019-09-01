@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const mongoose = require("mongoose");
 const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
@@ -95,8 +96,21 @@ function listEvents(auth) {
   });
 }
 
-app.use(express.static("public"));
+
+mongoose.connect("mongodb://localhost/green_new_deal");
+app.use("/public", express.static("public"));
 app.set("view engine", "ejs");
+
+//SCHEMA SETUP
+const memberSchema = new mongoose.Schema({
+  name: String,
+  contactInfo: String,
+  objective: String,
+  website: String
+});
+
+let Member = mongoose.model("Member", memberSchema);
+
 
 app.get("/", (req, res)=>{
     res.render("landing");
@@ -114,8 +128,8 @@ app.get("/petitions", (req, res)=>{
     res.render("petitions");
 });
 
-app.get("/contact", (req, res)=>{
-    res.render("contact");
+app.get("/members/new", (req, res)=>{
+    res.render("new");
 });
 
 app.get("*", (req, res)=>{

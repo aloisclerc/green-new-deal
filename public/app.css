@@ -1,10 +1,19 @@
 body {
     /* background: #002e10; */
-    background: linear-gradient(90deg, rgba(72,102,61,0.8) 23%, rgba(168,168,168,0.8) 89%), url("https://images.unsplash.com/photo-1447927228194-acfa3d1b45c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+    background: linear-gradient(90deg, rgba(72, 102, 61, 0.8) 23%, rgba(168, 168, 168, 0.8) 89%), url("https://images.unsplash.com/photo-1447927228194-acfa3d1b45c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
     background-size: cover;
     font-family: 'Lato', sans-serif;
     background-attachment: fixed;
+    height: 100%;
+    width: 100%;
 }
+
+h2 {
+    font-size: 50px;
+    text-align: center;
+    padding: 3% 0% 0% 0%;
+}
+
 
 .errorMessage {
     background: #FFF;
@@ -23,7 +32,7 @@ body {
 }
 
 .landing-background {
-    background:#c6e377;
+    background: #c6e377;
     width: 80%;
     height: 100rem;
 }
@@ -33,20 +42,14 @@ body {
     background: #36622b;
     text-align: center;
     font-size: 100px;
-    padding: 15% 0px 15% 0px;
+    padding: 20% 0px 20% 0px;
     width: 100%;
     margin: 0;
 }
 
-h1 {
+.title {
     font-size: 150px;
     font-weight: 400;
-}
-
-h2 {
-    font-size: 50px;
-    text-align: center;
-    padding: 3% 0% 0% 0%;
 }
 
 .body-text {
@@ -67,3 +70,37 @@ h2 {
     margin: 10% 0 0 0;
     border-radius: 15px;
 }
+
+.content {
+    font-size: 20px;
+    padding: 0 100px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    margin: 0 1%;
+}
+
+.collapsible {
+    font-size: 30px;
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 98%;
+    border: none;
+    text-align: left;
+    outline: none;
+    margin: 0 1% 0 1%;
+}
+
+.active,
+.collapsible:hover {
+    background-color: #ccc;
+}
+
+.propTitle {
+    padding: 3%;
+}
+
+

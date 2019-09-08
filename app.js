@@ -3,7 +3,10 @@ const app = express();
 const mongoose = require("mongoose");
 const fs = require('fs');
 const readline = require('readline');
-const {google} = require('googleapis');
+const {
+  google
+} = require('googleapis');
+const request = require("request");
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
@@ -26,9 +29,13 @@ fs.readFile('credentials.json', (err, content) => {
  * @param {function} callback The callback to call with the authorized client.
  */
 function authorize(credentials, callback) {
-  const {client_secret, client_id, redirect_uris} = credentials.installed;
+  const {
+    client_secret,
+    client_id,
+    redirect_uris
+  } = credentials.installed;
   const oAuth2Client = new google.auth.OAuth2(
-      client_id, client_secret, redirect_uris[0]);
+    client_id, client_secret, redirect_uris[0]);
 
   // Check if we have previously stored a token.
   fs.readFile(TOKEN_PATH, (err, token) => {
@@ -74,7 +81,10 @@ function getAccessToken(oAuth2Client, callback) {
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
 function listEvents(auth) {
-  const calendar = google.calendar({version: 'v3', auth});
+  const calendar = google.calendar({
+    version: 'v3',
+    auth
+  });
   calendar.events.list({
     calendarId: 'primary',
     timeMin: (new Date()).toISOString(),
@@ -112,30 +122,43 @@ const memberSchema = new mongoose.Schema({
 let Member = mongoose.model("Member", memberSchema);
 
 
-app.get("/", (req, res)=>{
-    res.render("landing");
+app.get("/", (req, res) => {
+  let search = req.query.search;
+  let url = "https://www.googleapis.com/blogger/v3/blogs/1781114122937363139/posts?key=AIzaSyBy74-kyDlOgV9COJjINbYF_4rBbzA5Xb0";
+  //apikey=AIzaSyBy74-kyDlOgV9COJjINbYF_4rBbzA5Xb0
+  //blogID=1781114122937363139
+  request(url, (error, response, body) => {
+    if (!error && response.statusCode == 200) {
+      parsedResult = JSON.parse(body);
+      res.render("landing", {
+        parsedResult: parsedResult
+      });
+      // res.send(parsedResult["Search"][0]["Title"]);
+    }
+  })
+  // res.render("landing");
 });
 
-app.get("/proposals", (req, res)=>{
-    res.render("proposals");
+app.get("/proposals", (req, res) => {
+  res.render("proposals");
 });
 
-app.get("/members", (req, res)=>{
-    res.render("members");
+app.get("/members", (req, res) => {
+  res.render("members");
 });
 
-app.get("/petitions", (req, res)=>{
-    res.render("petitions");
+app.get("/petitions", (req, res) => {
+  res.render("petitions");
 });
 
-app.get("/members/new", (req, res)=>{
-    res.render("new");
+app.get("/members/new", (req, res) => {
+  res.render("new");
 });
 
-app.get("*", (req, res)=>{
-    res.render("error");
+app.get("*", (req, res) => {
+  res.render("error");
 });
 
-app.listen(3000, ()=>{
-    console.log("Running on port 3000");
+app.listen(4000, () => {
+  console.log("Running on port 3000");
 });

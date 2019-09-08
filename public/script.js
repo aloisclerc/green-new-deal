@@ -1,6 +1,8 @@
 var coll = document.getElementsByClassName("collapsible");
 var i;
 var arr = Array.from(coll);
+var button = $("#c1");
+
 
 $(".minus").hide();
 
@@ -21,3 +23,44 @@ for (i = 0; i < coll.length; i++) {
     });
 
 }
+
+function sortTable(n) {
+    console.log(n);
+    let table = $("#memberTable");
+    let switching = true;
+    let dir = "asc";
+    let rows, shouldSwitch, x, y;
+
+    while (switching) {
+        switching = false
+        rowsHTML = table[0].rows;
+
+        rows = Array.from(rowsHTML);
+        console.log(rows);
+
+
+        for (var i = 1; i < rows.length - 1; i++) {
+            shouldSwitch = false;
+
+            x = rows[i].getElementsByTagName("td")[n];
+            y = rows[i + 1].getElementsByTagName("td")[n];
+            console.log(x);
+
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+        }
+    }
+}
+// $(function() {
+//     $("#myTable").tablesorter();
+//   });
+
+// function sort() {
+//     $("#memberTable").tablesorter();
+// };

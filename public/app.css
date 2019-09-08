@@ -61,6 +61,8 @@ h2 {
     color: #fff !important;
     background: #36622b;
     border-radius: 15px;
+    border-width: 2px;
+    border-color: #294a21;
 }
 
 .new-background {
@@ -83,7 +85,7 @@ h2 {
 
 .collapsible {
     font-size: 30px;
-    background-color: #eee;
+    background-color: #e4f1bd;
     color: #444;
     cursor: pointer;
     padding: 18px;
@@ -101,6 +103,34 @@ h2 {
 
 .propTitle {
     padding: 3%;
+    margin-left: 7%;
+}
+
+table {
+    border: 1px solid gray;
+    width: inherit;
+    margin: auto;
+    font-size: 20px;
+    border-spacing: 5px;
+    background: #fff;
+}
+
+th {
+    text-align: left;
+    background-color: #d8eca1;
+}
+
+td, th{
+    line-height: 1.5;
+    padding: 20px 5px 20px 5px;
 }
 
 
+tr:nth-child(even) {
+    background-color: #e4f1bd;
+  }
+
+  .head {
+    border: 1px solid gray;
+
+  }

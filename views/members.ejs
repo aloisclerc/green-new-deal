@@ -1,45 +1,48 @@
 <% include partials/header.ejs %>
 <div class="container landing-background">
-    <h1 class="propTitle">Members</h1>
+    <h1 class="propTitle">Members of the Coalition</h1>
 
-    <table id="memberTable" class="tablesorter">
+    <table id="memberTable">
         <thead>
             <tr class="head">
-                <th id="c1" onclick="sortTable(0)">Last Name</th>
-                <th id="c2" onclick="sortTable(1)">First Name</th>
-                <th id="c3" onclick="sortTable(2)">Email</th>
-                <th id="c4" onclick="sortTable(3)">Due</th>
-                <th id="c5" onclick="sortTable(4)">Web Site</th>
+                <th id="c1" onclick="sortTable(0)">Organization
+                    <span class="upSort">
+                        <i class="fas fa-sort-up"></i>
+                    </span>
+                    <span class="downSort">
+                        <i class="fas fa-sort-down"></i>
+                    </span>
+                </th>
+                <th id="c2" onclick="sortTable(1)">Objective</th>
+                <th id="c3" onclick="sortTable(2)">Contact Information</th>
+                <th id="c4" onclick="sortTable(3)">Web Site</th>
             </tr>
         </thead>
         <tbody>
-            <tr class="g">
-                <td>Smith</td>
-                <td>John</td>
-                <td>jsmith@gmail.com</td>
-                <td>$50.00</td>
-                <td>http://www.jsmith.com</td>
+            <tr>
+                <td>CoEnergy Co-operative/Ottawa Renewable Energy Co-op</td>
+                <td>To preserve the enviroment by ...</td>
+                <td>aaron.thornell@coenergy.coop</td>
+                <td><a href="www.coenergy.coop">www.coenergy.coop</a><br><a href="www.orec.ca">www.orec.ca</a></td>
             </tr>
-            <tr class="w">
-                <td>Bach</td>
-                <td>Frank</td>
-                <td>fbach@yahoo.com</td>
-                <td>$50.00</td>
-                <td>http://www.frank.com</td>
+            <tr>
+                <td>Our Time Ottawa</td>
+                <td>To preserve the enviroment by ...</td>
+                <td>amber.dyck93@gmail.com //
+                    emd.trudeau@gmail.com</td>
+                <td> <a href="https://our-time.ca/">https://our-time.ca/</a></td>
             </tr>
-            <tr class="g">
-                <td>Doe</td>
-                <td>Jason</td>
-                <td>jdoe@hotmail.com</td>
-                <td>$100.00</td>
-                <td>http://www.jdoe.com</td>
+            <tr>
+                <td>Climate Justice Ottawa</td>
+                <td>To preserve the enviroment by ...</td>
+                <td>aaronthornell93@gmail.com</td>
+                <td> <a href="https://www.facebook.com/climatejusticeottawa/">https://www.facebook.com/climatejusticeottawa/</a></td>
             </tr>
-            <tr class="w">
-                <td>Conway</td>
-                <td>Tim</td>
-                <td>tconway@earthlink.net</td>
-                <td>$50.00</td>
-                <td>http://www.timconway.com</td>
+            <tr>
+                <td>Earth Strike</td>
+                <td>To preserve the enviroment by ...</td>
+                <td>ca@earth-strike.com</td>
+                <td> <a href="https://www.facebook.com/earthstrikecanada/">https://www.facebook.com/earthstrikecanada/</a></td>
             </tr>
         </tbody>
     </table>

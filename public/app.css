@@ -34,7 +34,8 @@ h2 {
 .landing-background {
     background: #c6e377;
     width: 80%;
-    height: 100rem;
+    padding-bottom: 5rem;
+
 }
 
 .jumbotron {
@@ -120,7 +121,8 @@ th {
     background-color: #d8eca1;
 }
 
-td, th{
+td,
+th {
     line-height: 1.5;
     padding: 20px 5px 20px 5px;
 }
@@ -128,9 +130,19 @@ td, th{
 
 tr:nth-child(even) {
     background-color: #e4f1bd;
-  }
+}
 
-  .head {
+.head {
     border: 1px solid gray;
 
-  }
+}
+
+.landing-background2 {
+    background-color: #fff;
+}
+
+.tableActive {
+    background: #cce685;
+    box-shadow: 2px 1px 2px gray;
+    margin: 4px 10px 4px 10px;
+}

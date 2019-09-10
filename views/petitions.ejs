@@ -1,2 +1,44 @@
 <% include partials/header.ejs %>
+<div class="container landing-background">
+    <h1 class="propTitle">Petitions</h1>
+
+    <table id="memberTable">
+        <thead>
+            <tr class="head">
+                <th id="c1" onclick="sortTable(0)">Organization
+                    <span class="upSort">
+                        <i class="fas fa-sort-up"></i>
+                    </span>
+                    <span class="downSort">
+                        <i class="fas fa-sort-down"></i>
+                    </span>
+                </th>
+                <th id="c2" onclick="sortTable(1)">Purpose of Petition</th>
+                <th id="c3" onclick="sortTable(2)">Link to Petition</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CoEnergy Co-operative/Ottawa Renewable Energy Co-op</td>
+                <td>To hold ___ responsible for ____</td>
+                <td><a href="#">Petition</a></td>
+            </tr>
+            <tr>
+                <td>Our Time Ottawa</td>
+                <td>To preserve the enviroment by ...</td>
+                <td><a href="#">Petition</a></td>
+            </tr>
+            <tr>
+                <td>Climate Justice Ottawa</td>
+                <td>To clean up ...</td>
+                <td><a href="#">Petition</a></td>
+            </tr>
+            <tr>
+                <td>Earth Strike</td>
+                <td>To preserve the enviroment by ...</td>
+                <td><a href="#">Petition</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 <% include partials/footer.ejs %>

@@ -5,6 +5,9 @@ var button = $("#c1");
 
 
 $(".minus").hide();
+$($(this)[0].button[0]).children(".upSort").hide();
+$($(this)[0].button[0]).children(".downSort").hide();
+
 
 for (i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function () {
@@ -25,35 +28,65 @@ for (i = 0; i < coll.length; i++) {
 }
 
 function sortTable(n) {
-    console.log(n);
     let table = $("#memberTable");
     let switching = true;
     let dir = "asc";
-    let rows, shouldSwitch, x, y;
+    let idNum = n+1;
+    let id = $("#c"+idNum);
+    let rows, shouldSwitch, x, y, i, switchcount = 0;
 
     while (switching) {
+        console.log($($(this)[0]).children(".upSort"));
+        if(dir=="asc" && id[0].classList[0] == "tableActive") {
+            $(id[0]).children(".downSort").hide();
+            $(id[0]).children(".upSort").show();
+        } else if (dir == "desc" && id[0].classList[0] == "tableActive") {
+            $(id[0]).children(".upSort").hide();
+            $(id[0]).children(".downSort").show();
+        } else {
+            $(id[0]).children(".upSort").hide();
+            $(id[0]).children(".downSort").hide();
+        }
         switching = false
         rowsHTML = table[0].rows;
 
+        for(i = 0; i < 4; i++){
+            $("#c"+(i+1))[0].classList.remove("tableActive");
+
+        }
+         id[0].classList.add("tableActive");
+
+
         rows = Array.from(rowsHTML);
-        console.log(rows);
 
 
-        for (var i = 1; i < rows.length - 1; i++) {
+        for (i = 1; i < rows.length - 1; i++) {
             shouldSwitch = false;
 
             x = rows[i].getElementsByTagName("td")[n];
             y = rows[i + 1].getElementsByTagName("td")[n];
-            console.log(x);
-
-            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                shouldSwitch = true;
-                break;
+            if (dir == "asc") {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if (dir == "desc") {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
             }
         }
         if (shouldSwitch) {
             rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
             switching = true;
+
+            switchcount++;
+        } else {
+            if (switchcount == 0 && dir == "asc") {
+                dir = "desc";
+                switching = true;
+            }
         }
     }
 }

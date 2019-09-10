@@ -123,10 +123,24 @@ let Member = mongoose.model("Member", memberSchema);
 
 
 app.get("/", (req, res) => {
-  let search = req.query.search;
-  let url = "https://www.googleapis.com/blogger/v3/blogs/1781114122937363139/posts?key=AIzaSyBy74-kyDlOgV9COJjINbYF_4rBbzA5Xb0";
+  let url = "https://www.googleapis.com/calendar/v3/calendars/alois.clerc@gmail.com/events/eventId";
+
+  request(url, (error, response, body) => {
+    console.log(error);
+    console.log(response.statusCode);
+    if (!error && response.statusCode == 200) {
+      parsedResult = JSON.parse(body);
+      console.log(parsedResult);
+      console.log("test");
+      // res.send(parsedResult["Search"][0]["Title"]);
+    }
+  })
   //apikey=AIzaSyBy74-kyDlOgV9COJjINbYF_4rBbzA5Xb0
   //blogID=1781114122937363139
+
+
+  url = "https://www.googleapis.com/blogger/v3/blogs/1781114122937363139/posts?key=AIzaSyBy74-kyDlOgV9COJjINbYF_4rBbzA5Xb0";
+
   request(url, (error, response, body) => {
     if (!error && response.statusCode == 200) {
       parsedResult = JSON.parse(body);

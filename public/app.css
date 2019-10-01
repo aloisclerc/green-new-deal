@@ -49,17 +49,18 @@ h2 {
 
 .jumbotron {
     color: #fff;
-    background: #36622b;
+    background: url(images/protest.jpg);
+    background-size: cover;
     text-align: center;
-    font-size: 100px;
-    padding: 20% 0px 20% 0px;
+    font-size: 40px;
+    padding: 16% 0px 16% 0px;
     width: 100%;
     margin: 0;
 }
 
 .title {
-    font-size: 150px;
-    font-weight: 400;
+    font-size: 70px;
+    font-weight: 300;
 }
 
 .body-text {
@@ -154,4 +155,22 @@ tr:nth-child(even) {
     background: #cce685;
     box-shadow: 2px 1px 2px gray;
     margin: 4px 10px 4px 10px;
+}
+
+.obj {
+    width: 40%;
+}
+
+#regTitle {
+    font-size: 2.5rem;
+}
+
+.tab {
+    background: #36622b;
+    opacity: 0.9;
+    padding: 4% 2% 4% 0;
+}
+
+p {
+    font-size: 25px;
 }

@@ -50,7 +50,7 @@ function sortTable(n) {
         switching = false
         rowsHTML = table[0].rows;
 
-        for(i = 0; i < 4; i++){
+        for(i = 0; i < 3; i++){
             $("#c"+(i+1))[0].classList.remove("tableActive");
 
         }

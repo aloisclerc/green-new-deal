@@ -9,6 +9,14 @@ $($(this)[0].button[0]).children(".upSort").hide();
 $($(this)[0].button[0]).children(".downSort").hide();
 
 
+if(document.URL.includes("members")){
+    $("#members").addClass("current");
+} else if(document.URL.includes("petitions")){
+    $("#petitions").addClass("current");
+} else if(document.URL.includes("proposals")){
+    $("#proposals").addClass("current");
+}
+
 for (i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function () {
         this.classList.toggle("active");

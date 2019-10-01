@@ -90,6 +90,22 @@ function sortTable(n) {
         }
     }
 }
+
+
+var form = $('form#registerForm'),
+    url = 'https://script.google.com/macros/s/AKfycbwkgy1ksQWFWZLVYtsGc6MB8olSoDgnNSIkspXlqnSpoT8KIKQ/exec';
+
+$('#submit-form').on('click', function(e) {
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+    data: form.serialize()
+  }).success(
+    // do something
+  );
+})
 // $(function() {
 //     $("#myTable").tablesorter();
 //   });

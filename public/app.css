@@ -1,6 +1,6 @@
 body {
     /* background: #002e10; */
-    background: linear-gradient(90deg, rgba(72, 102, 61, 0.8) 23%, rgba(168, 168, 168, 0.8) 89%), url("https://images.unsplash.com/photo-1447927228194-acfa3d1b45c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+    /* background: linear-gradient(90deg, rgba(72, 102, 61, 0.8) 23%, rgba(168, 168, 168, 0.8) 89%), url("https://images.unsplash.com/photo-1447927228194-acfa3d1b45c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"); */
     background-size: cover;
     font-family: 'Lato', sans-serif;
     background-attachment: fixed;
@@ -25,15 +25,24 @@ h2 {
 
 .navbar {
     font-size: 20px;
+    padding: 5px 0 5px 0 !important;
 }
 
 .navbar-brand {
     font-weight: 700;
 }
 
+.btnNav {
+    height: 100%
+}
+
+.btnNav:hover {
+    background: #235636;
+}
+
 .landing-background {
-    background: #c6e377;
-    width: 80%;
+    background: #b6a576;
+    width: 100%;
     padding-bottom: 5rem;
 
 }

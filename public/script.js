@@ -67,7 +67,6 @@ function sortTable(n) {
 
         rows = Array.from(rowsHTML);
 
-
         for (i = 1; i < rows.length - 1; i++) {
             shouldSwitch = false;
 

@@ -6,7 +6,10 @@ body {
     background-attachment: fixed;
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
 }
+
+
 
 h2 {
     font-size: 50px;
@@ -25,7 +28,7 @@ h2 {
 
 .navbar {
     font-size: 20px;
-    padding: 5px 0 5px 0 !important;
+    padding: 0px 0 0px 0 !important;
 }
 
 .navbar-brand {
@@ -41,7 +44,7 @@ h2 {
 }
 
 .landing-background {
-    background: #b6a576;
+    background:#eff5f7;
     width: 100%;
     padding-bottom: 5rem;
 
@@ -78,7 +81,7 @@ h2 {
 
 .new-background {
     height: 30%;
-    background: #fff;
+    background: #cec2a2;
     padding: 5% 2%;
     margin: 10% 0 0 0;
     border-radius: 15px;
@@ -148,7 +151,7 @@ tr:nth-child(even) {
 }
 
 .landing-background2 {
-    background-color: #fff;
+    background-color: #cec2a2;
 }
 
 .tableActive {
@@ -173,4 +176,16 @@ tr:nth-child(even) {
 
 p {
     font-size: 25px;
+}
+
+.current {
+    color: #fff !important;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.fa-handshake {
+    font-size: 100px !important;
 }

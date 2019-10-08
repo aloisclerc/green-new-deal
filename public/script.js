@@ -8,7 +8,7 @@ $(".minus").hide();
 $($(this)[0].button[0]).children(".upSort").hide();
 $($(this)[0].button[0]).children(".downSort").hide();
 
-
+//highlights page name in navbar
 if(document.URL.includes("members")){
     $("#members").addClass("current");
 } else if(document.URL.includes("petitions")){

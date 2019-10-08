@@ -1,0 +1,13 @@
+<% include partials/header.ejs %>
+<h2>What's New?</h2>
+
+    <h4 class="d-flex justify-content-center m-4">
+        <%=parsedResult.items[(parsedResult.items.length -1)].title%>
+
+    </h4>
+    <p class="body-text">
+        <%=parsedResult.items[(parsedResult.items.length -1)].content%>
+
+    </p>
+
+    <% include partials/footer.ejs %>

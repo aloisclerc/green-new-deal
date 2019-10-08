@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const fs = require('fs');
 const readline = require('readline');
+let eventList = [];
 const {
   google
 } = require('googleapis');
@@ -92,19 +93,22 @@ function listEvents(auth) {
     singleEvents: true,
     orderBy: 'startTime',
   }, (err, res) => {
+    let a = [];
     if (err) return console.log('The API returned an error: ' + err);
     const events = res.data.items;
     if (events.length) {
       console.log('Upcoming 10 events:');
       events.map((event, i) => {
         const start = event.start.dateTime || event.start.date;
-        console.log(`${start} - ${event.summary}`);
+        eventList.push(`${start} - ${event.summary}`)
       });
     } else {
       console.log('No upcoming events found.');
     }
+    return a;
   });
 }
+
 
 
 mongoose.connect("mongodb://localhost/green_new_deal");
@@ -131,26 +135,13 @@ app.get("/", (req, res) => {
     if (!error && response.statusCode == 200) {
       parsedResult = JSON.parse(body);
       console.log(parsedResult);
-      console.log("test");
       // res.send(parsedResult["Search"][0]["Title"]);
     }
   })
   //apikey=AIzaSyBy74-kyDlOgV9COJjINbYF_4rBbzA5Xb0
   //blogID=1781114122937363139
-
-
-  url = "https://www.googleapis.com/blogger/v3/blogs/1781114122937363139/posts?key=AIzaSyBy74-kyDlOgV9COJjINbYF_4rBbzA5Xb0";
-
-  request(url, (error, response, body) => {
-    if (!error && response.statusCode == 200) {
-      parsedResult = JSON.parse(body);
-      res.render("landing", {
-        parsedResult: parsedResult
-      });
-      // res.send(parsedResult["Search"][0]["Title"]);
-    }
-  })
-  // res.render("landing");
+  console.log(eventList);
+  res.render("landing", {eventList: eventList});
 });
 
 app.get("/proposals", (req, res) => {
@@ -165,8 +156,23 @@ app.get("/petitions", (req, res) => {
   res.render("petitions");
 });
 
-app.get("/members/new", (req, res) => {
+app.get("/new", (req, res) => {
   res.render("new");
+});
+
+app.get("/blog", (req, res) => {
+
+  url = "https://www.googleapis.com/blogger/v3/blogs/1781114122937363139/posts?key=AIzaSyBy74-kyDlOgV9COJjINbYF_4rBbzA5Xb0";
+
+  request(url, (error, response, body) => {
+    if (!error && response.statusCode == 200) {
+      parsedResult = JSON.parse(body);
+      res.render("blog", {
+        parsedResult: parsedResult
+      });
+      // res.send(parsedResult["Search"][0]["Title"]);
+    }
+  })
 });
 
 app.get("*", (req, res) => {

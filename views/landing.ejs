@@ -26,17 +26,24 @@
     <ul class="body-text mb-0 row">
         <li class="col-sm">
             <div class=" d-flex justify-content-center">
-                <i class="fas fa-handshake"></i>
+                <i class="fas fa-handshake landingIcon"></i>
             </div>
 
             We are creating a coalition of organizations and people who support the vision for a Green New Deal and are
             advocating for change in the Ottawa region that aligns with this vision.
         </li>
         <li class="col-sm">
-            With the input of the GND Coalition members and others, we plan to develop a municipal resolution and push
+            <div class=" d-flex justify-content-center">
+                <i class="fas fa-scroll landingIcon"></i>
+            </div>
+            With the input of the GND Coalition members and others, we plan to develop a municipal resolution and
+            push
             for its adoption by the Ottawa City Council.
         </li>
         <li class="col-sm">
+            <div class=" d-flex justify-content-center">
+                <i class="fas fa-users landingIcon"></i>
+            </div>
             Recognizing that there are already many organizations and people doing great work in the Ottawa region that
             aligns with the vision for a GND, our goal is to amplify the strengths of these organizations, support
             alliances, serve as an information hub, and build widespread support for a GND in the Ottawa region.
@@ -45,18 +52,15 @@
 
 </div>
 <div class="landing-background2">
-    <h2>What's New?</h2>
-
-    <h4 class="d-flex justify-content-center m-4">
-        <%=parsedResult.items[(parsedResult.items.length -1)].title%>
-
-    </h4>
-    <p class="body-text">
-        <%=parsedResult.items[(parsedResult.items.length -1)].content%>
-
-    </p>
+    
 
     <h2>Upcoming Events</h2>
+
+    <%for(let i = 0; i < eventList.length; i++){%>
+
+        <p><%=eventList[i]%></p>
+
+    <%}%>
 
     <iframe class="ml-5"
         src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FToronto&amp;src=YWxvaXMuY2xlcmNAZ21haWwuY29t&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=ZW4uY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;src=b2xpdmllci5jbGVyYzIzQGdtYWlsLmNvbQ&amp;color=%23039BE5&amp;color=%237986CB&amp;color=%237986CB&amp;color=%23E4C441"

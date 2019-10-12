@@ -8,18 +8,42 @@
 </div>
 <div class="landing-background">
     <div class="row pt-2">
-        <div class="col-sm">
+        <div class="col-sm p-0">
             <h2>Who are we?</h2>
-            <p class="body-text">We are a group of citizens of the Ottawa region who are concerned by the threat of
-                climate
-                change to our communities, our planet and our future. We believe in the vision of a Green New Deal and
-                its
-                potential to tackle the climate crisis and increasing inequality at the same time by reducing emissions,
-                preserving biodiversity, and promoting social justice. As we transition to a renewable energy economy,
-                we want
-                to ensure that no one - especially those on the frontlines of the climate crisis - is left behind.</p>
+            <p class="body-text">We are a group of local citizens concerned about the current and impending impacts of
+                the climate
+                crisis on our communities, our planet, and our collective futures. We first came together following the
+                Green New Deal Town Halls that were hosted in Spring/Summer 2019. [hyperlink to blog post about
+                town halls]
+                <br>
+                <br>
+                We believe that the scale of the crisis requires us to take action collectively and so we are coming
+                together to envision, articulate, advocate for and build a better future for ourselves and future
+                generations in Ottawa. Please join us!</p>
+            <h2>Why now? What is a Green New Deal</h2>
+            <p class="body-text">In 2018, the United Nations’ Intergovernmental Panel on Climate Change told us that we
+                have just 12
+                years to radically reduce global greenhouse gas emissions if we are to avoid the most catastrophic
+                consequences of climate collapse. From floods increasing in number and severity, to heatwaves and air
+                pollution, our communities are already feeling the impacts of the climate crisis. At the same time, our
+                communities are facing deepening economic inequality, precarious work, a growing affordable housing
+                crisis, and rising racism, xenophobia and hatred.
+                We believe that a Green New Deal has the potential to tackle these interconnected crises through
+                systemic change centered around reducing greenhouse gas emissions, preserving biodiversity,
+                respecting the rights of Indigenous peoples, and promoting social justice.
+                <br>
+                <br>
+                As we transition away from fossil fuels to a renewable energy economy, it is critical to ensure that no
+                one – especially the frontline, Indigenous and marginalized communities bearing the burden of the
+                impacts of extractive industries (tar sands, fracked gas, coal, forestry) and the climate crisis – is
+                left
+                behind. With a Green New Deal, we can build a liveable, just future for everyone.</p>
         </div>
-        <img src="../public/images/parliament.jpg" alt="Parliament" class="col-sm-6">
+        <div class="col-sm-5 justify-content-center d-flex p-0">
+            <a class="twitter-timeline" data-width="700" data-height="1000"
+                href="https://twitter.com/uOttawa?ref_src=twsrc%5Etfw">Tweets by uOttawa</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
     </div>
     <h2>What is our plan?</h2>
 
@@ -28,43 +52,64 @@
             <div class=" d-flex justify-content-center">
                 <i class="fas fa-handshake landingIcon"></i>
             </div>
-
-            We are creating a coalition of organizations and people who support the vision for a Green New Deal and are
-            advocating for change in the Ottawa region that aligns with this vision.
+            We are organizing a coalition of organizations, groups and individuals in the Ottawa region who support
+            and are building momentum for a Green New Deal, and who are advocating for changes that address
+            the systemic and intersectional issues that underpin the current crisis.
         </li>
         <li class="col-sm">
             <div class=" d-flex justify-content-center">
                 <i class="fas fa-scroll landingIcon"></i>
             </div>
-            With the input of the GND Coalition members and others, we plan to develop a municipal resolution and
-            push
-            for its adoption by the Ottawa City Council.
+            With the input of the Green New Deal coalition members and others, we plan to envision and articulate
+            what a Green New Deal would look like for Ottawa and how to get there together. Our initial focus will
+            be to develop a municipal resolution and push for its adoption by the Ottawa City Council. We will also
+            be developing input for the provincial and federal levels of government.
         </li>
         <li class="col-sm">
             <div class=" d-flex justify-content-center">
                 <i class="fas fa-users landingIcon"></i>
             </div>
-            Recognizing that there are already many organizations and people doing great work in the Ottawa region that
-            aligns with the vision for a GND, our goal is to amplify the strengths of these organizations, support
-            alliances, serve as an information hub, and build widespread support for a GND in the Ottawa region.
+            Recognizing that there are already many organizations, groups and people doing invaluable work in the
+            Ottawa region that aligns with the Green New Deal vision, our goal is to amplify the strengths of these
+            organizations, support alliances, serve as an information hub, and build widespread support for a Green
+            New Deal in the Ottawa region.
         </li>
     </ul>
-
+    <div class="container">
+        <div class="">
+            <h2>Why now? What is a Green New Deal</h2>
+            <p class="body-text">In 2018, the United Nations’ Intergovernmental Panel on Climate Change told us that we
+                have just 12
+                years to radically reduce global greenhouse gas emissions if we are to avoid the most catastrophic
+                consequences of climate collapse. From floods increasing in number and severity, to heatwaves and air
+                pollution, our communities are already feeling the impacts of the climate crisis. At the same time, our
+                communities are facing deepening economic inequality, precarious work, a growing affordable housing
+                crisis, and rising racism, xenophobia and hatred.
+                We believe that a Green New Deal has the potential to tackle these interconnected crises through
+                systemic change centered around reducing greenhouse gas emissions, preserving biodiversity,
+                respecting the rights of Indigenous peoples, and promoting social justice.
+                <br>
+                <br>
+                As we transition away from fossil fuels to a renewable energy economy, it is critical to ensure that no
+                one – especially the frontline, Indigenous and marginalized communities bearing the burden of the
+                impacts of extractive industries (tar sands, fracked gas, coal, forestry) and the climate crisis – is
+                left
+                behind. With a Green New Deal, we can build a liveable, just future for everyone.</p>
+        </div>
+        <!-- <img class="col-sm-6 parlImage" src="../public/images/parliament.jpg" alt=""> -->
+    </div>
 </div>
 <div class="landing-background2">
-    
+
 
     <h2>Upcoming Events</h2>
 
     <%for(let i = 0; i < eventList.length; i++){%>
 
-        <p><%=eventList[i]%></p>
+    <p><%=eventList[i]%></p>
 
     <%}%>
 
-    <iframe class="ml-5"
-        src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FToronto&amp;src=YWxvaXMuY2xlcmNAZ21haWwuY29t&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=ZW4uY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;src=b2xpdmllci5jbGVyYzIzQGdtYWlsLmNvbQ&amp;color=%23039BE5&amp;color=%237986CB&amp;color=%237986CB&amp;color=%23E4C441"
-        style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
 </div>
 <% include partials/footer.ejs %>

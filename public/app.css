@@ -68,7 +68,7 @@ h2 {
 
 .body-text {
     font-size: 22px;
-    padding: 3% 12%;
+    padding: 3% 7%;
 }
 
 .contactButton {
@@ -189,4 +189,9 @@ ul {
 .landingIcon {
     font-size: 100px !important;
     padding-right: 20px;
+}
+
+.parlImage {
+    height: 100%;
+    padding-top: 10%;
 }

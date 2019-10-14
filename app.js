@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
 const fs = require('fs');
 const readline = require('readline');
 let eventList = [];
@@ -111,19 +110,10 @@ function listEvents(auth) {
 
 
 
-mongoose.connect("mongodb://localhost/green_new_deal");
 app.use("/public", express.static("public"));
 app.set("view engine", "ejs");
 
-//SCHEMA SETUP
-const memberSchema = new mongoose.Schema({
-  name: String,
-  contactInfo: String,
-  objective: String,
-  website: String
-});
 
-let Member = mongoose.model("Member", memberSchema);
 
 
 app.get("/", (req, res) => {

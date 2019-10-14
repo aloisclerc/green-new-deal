@@ -1,5 +1,5 @@
 body {
-    /* background: #002e10; */
+    background: #ddd;
     /* background: linear-gradient(90deg, rgba(72, 102, 61, 0.8) 23%, rgba(168, 168, 168, 0.8) 89%), url("https://images.unsplash.com/photo-1447927228194-acfa3d1b45c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"); */
     background-size: cover;
     font-family: 'Lato', sans-serif;
@@ -12,7 +12,7 @@ body {
 
 
 h2 {
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
     padding: 3% 0% 0% 0%;
 }
@@ -81,7 +81,7 @@ h2 {
 
 .new-background {
     height: 30%;
-    background: #cec2a2;
+    background: #bbeaa6;
     padding: 5% 2%;
     margin: 10% 0 0 0;
     border-radius: 15px;
@@ -151,7 +151,7 @@ tr:nth-child(even) {
 }
 
 .landing-background2 {
-    background-color: #cec2a2;
+    background-color: #fbeec1;
 }
 
 .tableActive {
@@ -165,7 +165,7 @@ tr:nth-child(even) {
 }
 
 #regTitle {
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .tab {
@@ -194,4 +194,8 @@ ul {
 .parlImage {
     height: 100%;
     padding-top: 10%;
+}
+
+.newCheck {
+    font-size: 1.1rem;
 }

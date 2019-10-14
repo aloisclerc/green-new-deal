@@ -2,20 +2,36 @@
 <div class="container">
     <div class="new-background">
         <div class="row justify-content-center mb-3">
-            <h2 id="regTitle">Register here to receive updates from the Coallition for a Green New Deal Ottawa</h2>
+            <h2 id="regTitle">Register Here</h2>
         </div>
 
         <div class="row d-flex justify-content-center">
 
             <form action="/" method="POST" style="width:40%" id="registerForm">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="firstName" id="" placeholder="First Name" required>
+                    <input class="form-control" type="text" name="firstName" id="" placeholder="First Name">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="lastName" id="" placeholder="Last Name" required>
+                    <input class="form-control" type="text" name="lastName" id="" placeholder="Last Name">
                 </div>
+                <p> or </p>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="organization" id="" placeholder="Organization">
+                </div>
+                <br>
+                <br>
                 <div class="form-group">
                     <input class="form-control" type="email" name="email" id="" placeholder="Email" required>
+                </div>
+                <div class="form-group newCheck">
+                    <p>You are contacting us to...</p>
+                    <input type="checkbox" name="reason1" id="" value="Receive updates"> Register to receive updates
+                    <br>
+                    <input type="checkbox" name="reason2" id="" value="Become member"> Become a member of the coalition
+                    <br>
+                    <input type="checkbox" name="reason3" id="" value="Volunteer"> Volunteer <br>
+                    <input type="checkbox" name="reason4" id="" value="Other"> Other(Please Specify)<br>
+                    <textarea name="message" rows="5" cols="40" placeholder="If selected Other please specify"></textarea>
                 </div>
                 <div class="form-group">
                     <button class="bn btn-lg btn-primary btn-block" id="submit-form">Submit!</button>

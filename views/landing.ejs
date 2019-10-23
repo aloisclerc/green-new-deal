@@ -13,7 +13,8 @@
             <p class="body-text">We are a group of local citizens concerned about the current and impending impacts of
                 the climate
                 crisis on our communities, our planet, and our collective futures. We first came together following the
-                <a href="https://act.greennewdealcanada.ca/what-we-heard/">Green New Deal Town Halls</a> that were hosted in Spring/Summer 2019.
+                <a href="https://act.greennewdealcanada.ca/what-we-heard/">Green New Deal Town Halls</a> that were
+                hosted in Spring/Summer 2019.
                 <br>
                 <br>
                 We believe that the scale of the crisis requires us to take action collectively and so we are coming
@@ -95,22 +96,23 @@
                 left
                 behind. With a Green New Deal, we can build a liveable, just future for everyone.</p>
         </div> -->
-        <!-- <img class="col-sm-6 parlImage" src="../public/images/parliament.jpg" alt=""> -->
-    </div>
+    <!-- <img class="col-sm-6 parlImage" src="../public/images/parliament.jpg" alt=""> -->
+</div>
 </div>
 <div class="landing-background2">
 
-    
-    <h2>Upcoming Events</h2>
 
-    <p>If you are a member of the coalition and you would like to have an event added, email us at: ottawagnd@gmail.com</p>
+    <h2>Upcoming Events</h2>
+    <p>If you are a member of the coalition and you would like to have an event added, email us at: ottawagnd@gmail.com
+    </p>
 
     <%for(let i = 0; i < eventList.length; i++){%>
+    <div class="row d-flex justify-content-center event">
 
-    <p><%=eventList[i]%></p>
+        <p><%=eventList[i]%></p>
+    </div>
 
     <%}%>
-
 
 </div>
 <% include partials/footer.ejs %>

@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     background: #ddd;
     /* background: linear-gradient(90deg, rgba(72, 102, 61, 0.8) 23%, rgba(168, 168, 168, 0.8) 89%), url("https://images.unsplash.com/photo-1447927228194-acfa3d1b45c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"); */
@@ -44,7 +50,7 @@ h2 {
 }
 
 .landing-background {
-    background:#eff5f7;
+    background: #eff5f7;
     width: 100%;
     padding-bottom: 5rem;
 
@@ -198,4 +204,129 @@ ul {
 
 .newCheck {
     font-size: 1.1rem;
+}
+
+.event {
+    background: #36622a;
+    width: 40%;
+    margin: 2% 30% 2% 30%;
+    float: center;
+    border-radius: 25px;
+}
+
+
+
+#contactPhoto {
+    height: 10%;
+    width: 100%;
+}
+
+.contactHeader {
+    background: linear-gradient(to right, rgba(69, 182, 73, 0.5), rgba(220, 227, 91, 0.8)), url(images/townhall.jpg);
+
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #45B649, #DCE35B);
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    height: 15%;
+    padding: 8%;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 50% 80%;
+    text-align: center;
+    z-index: -1;
+
+}
+
+#contactBox1 {
+    padding-left: 10%;
+    padding-right: 10%;
+    margin: -6% 3% 2% 0%;
+    border-radius: 6px;
+}
+
+#contactBox2 {
+    padding-left: 10%;
+    padding-right: 10%;
+    margin: -6% 0% 2% 3%;
+    border-radius: 6px;
+}
+
+.container-fluid {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 100%;
+}
+
+.contactRow {
+    width: 80%;
+}
+
+
+
+.memberButton {
+    background: #36622b;
+    color: #fff;
+    border: none;
+    position: relative;
+    height: 80px;
+    font-size: 1.6em;
+    width: 80%;
+    cursor: pointer;
+    transition: 800ms ease all;
+    outline: none;
+    margin-top: 1rem;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.memberButton:hover {
+    background: #fff;
+    color: #36622b;
+}
+
+.memberButton:before,
+button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #36622b;
+    transition: 400ms ease all;
+}
+
+.memberButton:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+.memberButton:hover:before,
+.memberButton:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+}
+
+.contactIcon {
+    font-size: 80px !important;
+    color: black;
+}
+.contactIcon2 {
+    font-size: 100px !important;
+    color: black;
+}
+
+.contactDescription {
+    font-size: 19px;
+    text-align: center;
+}
+
+h3 {
+    font-weight: 700;
 }

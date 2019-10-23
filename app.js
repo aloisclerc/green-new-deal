@@ -146,13 +146,21 @@ app.get("/petitions", (req, res) => {
   res.render("petitions");
 });
 
-app.get("/new", (req, res) => {
-  res.render("new");
+app.get("/contact", (req, res) => {
+  res.render("contact");
+});
+
+app.get("/newMember", (req, res) => {
+  res.render("newMember");
+});
+
+app.get("/newOrg", (req, res) => {
+  res.render("newOrg");
 });
 
 app.get("/blog", (req, res) => {
 
-  url = "https://www.googleapis.com/blogger/v3/blogs/1781114122937363139/posts?key=AIzaSyBy74-kyDlOgV9COJjINbYF_4rBbzA5Xb0";
+  url = "https://www.googleapis.com/blogger/v3/blogs/2519708553400588558/posts?key=AIzaSyBy74-kyDlOgV9COJjINbYF_4rBbzA5Xb0";
 
   request(url, (error, response, body) => {
     if (!error && response.statusCode == 200) {

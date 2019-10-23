@@ -1,0 +1,38 @@
+<% include partials/header.ejs %>
+
+<div class="jumbotron d-flex contactHeader justify-content-center row">
+    <div class="col-sm">
+        <h1 class="title col-sm" style="font-weight: 700;">Contact Us</h1>
+        <p class="col-sm">Striving to make Ottawa a cleaner and more ethically responsible capital</p>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row contactRow">
+            <div class="landing-background col-sm" id="contactBox1">
+                    <div class="d-flex justify-content-center contactIcon pt-5"><i class="fas fa-user-plus"></i></div>
+                    <div class="d-flex justify-content-center">
+                        <h3 class="p-3">Follow Us</h3>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <p class="contactDescription">Make sure to follow us on any of the platforms below to see our most recent activity.</p>
+                    </div>
+                    <div class="d-flex justify-content-around p-4">
+                    <a href="#"><i class="fab fa-facebook-square contactIcon2"></i></a>
+                    <a href="#"><i class="fab fa-instagram contactIcon2"></i></a>
+                    <a href="#"><i class="fab fa-twitter contactIcon2"></i></a>
+                </div>
+                </div>
+        <div class="landing-background col-sm" id="contactBox2">
+            <div class="d-flex justify-content-center contactIcon pt-5"><i class="fas fa-address-book"></i></div>
+            <div class="d-flex justify-content-center">
+                <h3 class="p-3">Register</h3>
+            </div>
+            <div class="d-flex justify-content-center">
+                <p class="contactDescription">Interested in proposing an event or simply want to be on our mailing list? Sign Up below!</p>
+            </div>
+            <button class="memberButton" onclick="location.href='/newMember'">As an Individual</button>
+            <button class="memberButton" onclick="location.href='/newOrg'">As an Organization</button>
+        </div>
+    </div>
+</div>
+<% include partials/footer.ejs %>

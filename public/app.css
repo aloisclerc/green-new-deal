@@ -74,6 +74,11 @@ h2 {
 
 }
 
+.contactBackground {
+    background: #eff5f7;
+
+}
+
 .jumbotron {
     color: #fff;
     background: url(images/protest.jpg);
@@ -234,13 +239,27 @@ ul {
 }
 
 .event {
-    background: #36622a;
-    width: 40%;
-    margin: 2% 30% 2% 30%;
+    border-bottom: 1px solid #ddd;
+    width: 70%;
+    margin: 2% 15% 2% 15%;
     float: center;
-    border-radius: 25px;
+    border-radius: 5px;
 }
 
+.eventDate, .eventTime, .eventLocation {
+    color: rgba(0, 0, 0, .65);
+}
+
+.eventDate {
+    font-size: 20px;
+    margin: 0;
+}
+
+.eventList {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+}
 
 
 #contactPhoto {

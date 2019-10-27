@@ -97,7 +97,7 @@
         <li>Maximize our impact!</li>
     </ul>
     <button class="collapsible d-flex">
-        Click here to read more about the concept of a Green New Deal
+        Click here to learn more about our plan
         <span class="plus">
             <i class="fas fa-plus"></i>
         </span>
@@ -141,18 +141,27 @@
 
 
 
-
     <h2>Upcoming Events</h2>
-    <p>If you are a member of the coalition and you would like to have an event added, email us at: ottawagnd@gmail.com
-    </p>
+    <hr class="divider my-4">
+    <div class="d-flex justify-content-center">
+
+        <p>If you are a member of the coalition and you would like to have an event added, email us at:
+            ottawagnd@gmail.com
+        </p>
+    </div>
 
     <%for(let i = 0; i < eventList.length; i++){%>
-    <div class="row d-flex justify-content-center event">
-
-        <p><%=eventList[i]%></p>
+    <div class="row d-flex justify-content-between event">
+        <div>
+            <p class="eventDate"><%=eventDate[i]%></p>
+            <p class="eventTime"><%=eventTime[i]%></p>
+        </div>
+        <div class="eventDetails">
+            <p class="eventList"><%=eventList[i]%></p>
+            <p class="eventLocation"><%=eventLocation[i]%></p>
+        </div>
     </div>
 
     <%}%>
-
 </div>
 <% include partials/footer.ejs %>

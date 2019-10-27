@@ -3,6 +3,10 @@ const app = express();
 const fs = require('fs');
 const readline = require('readline');
 let eventList = [];
+let eventDate = [];
+let eventTime = [];
+let eventLocation = [];
+
 const {
   google
 } = require('googleapis');
@@ -98,8 +102,23 @@ function listEvents(auth) {
     if (events.length) {
       console.log('Upcoming 10 events:');
       events.map((event, i) => {
-        const start = event.start.dateTime || event.start.date;
-        eventList.push(`${start} - ${event.summary}`)
+        let start = event.start.dateTime;
+        let end = event.end.dateTime;
+        let location = event.location;
+        const summary = event.summary;
+        eventList.push(`${event.summary}`);
+        // eventDate.push(`${date}`);
+        var date = new Date(Date.parse(start));
+        var dateEnd = new Date(Date.parse(end));
+        eventDate.push(date.toDateString());
+        eventLocation.push(location);
+        if (date.getMinutes() < 10) {
+          eventTime.push(String(date.getHours()) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours()) + ":" + String(dateEnd.getMinutes())+ "0")
+        } else {
+          eventTime.push(String(date.getHours()) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours()) + ":" + String(dateEnd.getMinutes()))
+        }
+        console.log(eventTime);
+
       });
     } else {
       console.log('No upcoming events found.');
@@ -120,8 +139,7 @@ app.get("/", (req, res) => {
   let url = "https://www.googleapis.com/calendar/v3/calendars/alois.clerc@gmail.com/events/eventId";
 
   request(url, (error, response, body) => {
-    console.log(error);
-    console.log(response.statusCode);
+
     if (!error && response.statusCode == 200) {
       parsedResult = JSON.parse(body);
       console.log(parsedResult);
@@ -130,8 +148,12 @@ app.get("/", (req, res) => {
   })
   //apikey=AIzaSyBy74-kyDlOgV9COJjINbYF_4rBbzA5Xb0
   //blogID=1781114122937363139
-  console.log(eventList);
-  res.render("landing", {eventList: eventList});
+  res.render("landing", {
+    eventList: eventList,
+    eventDate: eventDate,
+    eventLocation: eventLocation,
+    eventTime: eventTime
+  });
 });
 
 app.get("/proposals", (req, res) => {

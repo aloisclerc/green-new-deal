@@ -33,18 +33,13 @@ h2 {
 }
 
 .navbar {
-    background-color: #fff !important;
+    background-color: rgba(255,255,255,1) !important;
     font-size: 20px;
     padding: 0px 0 0px 0 !important;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
 }
 
-/* 
-.navbar-brand {
-    font-weight: 700;
-    max-height: 10% !important; 
-    max-width: 10% !important;
-} */
+
 
 .navbar-brand {
     max-height: 5.9%;
@@ -60,6 +55,7 @@ h2 {
 
 .btnNav:hover {
     background: #235636;
+    color: #fff !important;
 }
 
 .actualList {
@@ -305,9 +301,7 @@ ul {
     width: 100%;
 }
 
-.contactRow {
-    /* width: 80%; */
-}
+
 
 
 
@@ -420,4 +414,32 @@ h3 {
     border-width:0.2rem;
     border-color: #36622b;
 
+}
+
+.blogDivider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(54, 99, 43, 0), rgba(54, 99, 43, 0.75), rgba(54, 99, 43, 0));
+    max-width: 60%;
+    border-color: rgb(54, 99, 43);
+
+}
+
+.blogText {
+    font-size: 18px;
+    margin: 0% 20% 0% 20%;
+    background-color: #fff;
+
+}
+
+.blogBackground {
+    background-color: #eee;
+    max-height: 100%;
+    padding: 1% 0% 0% 0%;
+    /* position: absolute; */
+}
+
+.landing {
+    z-index: -1;
+    /* margin-top: -5.9%; */
 }

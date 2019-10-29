@@ -7,6 +7,8 @@ let eventDate = [];
 let eventTime = [];
 let eventLocation = [];
 
+
+
 const {
   google
 } = require('googleapis');
@@ -187,6 +189,7 @@ app.get("/blog", (req, res) => {
   request(url, (error, response, body) => {
     if (!error && response.statusCode == 200) {
       parsedResult = JSON.parse(body);
+      
       res.render("blog", {
         parsedResult: parsedResult
       });

@@ -1,13 +1,18 @@
 <% include partials/header.ejs %>
+<div class="blogBackground">
+    <div class="blogText">
 <h2>What's New?</h2>
-
-    <h4 class="d-flex justify-content-center m-4">
-        <%=parsedResult.items[(parsedResult.items.length -1)].title%>
+    <%for(var i=0; i < parsedResult.items.length; i++){%>
+    <h4 class="d-flex justify-content-center m-4 blogTitle">
+        <%=parsedResult.items[(i)].title%>
 
     </h4>
-    <p class="body-text">
-        <%=parsedResult.items[(parsedResult.items.length -1)].content%>
+    <div class="body-text blogParagraph">
+        <%-parsedResult.items[(i)].content%>
 
-    </p>
-
+    </div>
+    <hr class="blogDivider my-5">
+    <%}%>
+</div>
+</div>
     <% include partials/footer.ejs %>

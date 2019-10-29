@@ -42,7 +42,6 @@ function sortTable(n) {
     let idNum = n+1;
     let id = $("#c"+idNum);
     let rows, shouldSwitch, x, y, i, switchcount = 0;
-
     while (switching) {
         console.log($($(this)[0]).children(".upSort"));
         if(dir=="asc" && id[0].classList[0] == "tableActive") {
@@ -98,7 +97,6 @@ function sortTable(n) {
     }
 }
 
-
 var form = $('form#registerForm'),
     url = 'https://script.google.com/macros/s/AKfycbwkgy1ksQWFWZLVYtsGc6MB8olSoDgnNSIkspXlqnSpoT8KIKQ/exec';
 
@@ -113,10 +111,4 @@ $('#submit-form').on('click', function(e) {
     // do something
   );
 })
-// $(function() {
-//     $("#myTable").tablesorter();
-//   });
 
-// function sort() {
-//     $("#memberTable").tablesorter();
-// };

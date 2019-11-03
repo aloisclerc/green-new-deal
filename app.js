@@ -202,6 +202,6 @@ app.get("*", (req, res) => {
   res.render("error");
 });
 
-app.listen(4000, () => {
-  console.log("Running on port 3000");
+app.listen(process.env.PORT || 4000, () => {
+  console.log("Running on port 4000");
 });

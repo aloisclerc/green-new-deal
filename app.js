@@ -117,7 +117,7 @@ function listEvents(auth) {
         if (date.getMinutes() < 10) {
           eventTime.push(String(date.getHours()) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours()) + ":" + String(dateEnd.getMinutes())+ "0")
         } else {
-          eventTime.push(String(date.getHours()) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours()) + ":" + String(dateEnd.getMinutes()))
+          eventTime.push(String(date.getHours()-4) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours()-4) + ":" + String(dateEnd.getMinutes()))
         }
         console.log(eventTime);
 

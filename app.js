@@ -114,9 +114,14 @@ function listEvents(auth) {
         var dateEnd = new Date(Date.parse(end));
         eventDate.push(date.toDateString());
         eventLocation.push(location);
-        if (date.getMinutes() < 10) {
-          eventTime.push(String(date.getHours()) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours()) + ":" + String(dateEnd.getMinutes())+ "0")
-        } else {
+        if (date.getMinutes() < 10 && dateEnd.getMinutes() < 10) {
+          eventTime.push(String(date.getHours()-5) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours()-5) + ":" + String(dateEnd.getMinutes())+ "0")
+        } else if (date.getMinutes() < 10){
+          eventTime.push(String(date.getHours()-5) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours()-5) + ":" + String(dateEnd.getMinutes()))
+        } else if (dateEnd.getMinutes() < 10) {
+          eventTime.push(String(date.getHours()-5) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours()-5) + ":" + String(dateEnd.getMinutes())+ "0")
+        }
+        else {
           eventTime.push(String(date.getHours()-5) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours()-5) + ":" + String(dateEnd.getMinutes()))
         }
         console.log(eventTime);

@@ -115,16 +115,14 @@ function listEvents(auth) {
         eventDate.push(date.toDateString());
         eventLocation.push(location);
         if (date.getMinutes() < 10 && dateEnd.getMinutes() < 10) {
-          eventTime.push(String(date.getHours()-5) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours()-5) + ":" + String(dateEnd.getMinutes())+ "0")
-        } else if (date.getMinutes() < 10){
-          eventTime.push(String(date.getHours()-5) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours()-5) + ":" + String(dateEnd.getMinutes()))
+          eventTime.push(String(date.getHours() - 5) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours() - 5) + ":" + String(dateEnd.getMinutes()) + "0")
+        } else if (date.getMinutes() < 10) {
+          eventTime.push(String(date.getHours() - 5) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours() - 5) + ":" + String(dateEnd.getMinutes()))
         } else if (dateEnd.getMinutes() < 10) {
-          eventTime.push(String(date.getHours()-5) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours()-5) + ":" + String(dateEnd.getMinutes())+ "0")
+          eventTime.push(String(date.getHours() - 5) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours() - 5) + ":" + String(dateEnd.getMinutes()) + "0")
+        } else {
+          eventTime.push(String(date.getHours() - 5) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours() - 5) + ":" + String(dateEnd.getMinutes()))
         }
-        else {
-          eventTime.push(String(date.getHours()-5) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours()-5) + ":" + String(dateEnd.getMinutes()))
-        }
-        console.log(eventTime);
 
       });
     } else {
@@ -194,7 +192,7 @@ app.get("/blog", (req, res) => {
   request(url, (error, response, body) => {
     if (!error && response.statusCode == 200) {
       parsedResult = JSON.parse(body);
-      
+
       res.render("blog", {
         parsedResult: parsedResult
       });

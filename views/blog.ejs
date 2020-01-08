@@ -5,11 +5,11 @@
     <%for(var i=0; i < parsedResult.items.length; i++){%>
     <h4 class="d-flex justify-content-center m-4 blogTitle">
         <%=parsedResult.items[(i)].title%>
+        
 
     </h4>
     <div class="body-text blogParagraph">
         <%-parsedResult.items[(i)].content%>
-
     </div>
     <hr class="blogDivider my-5">
     <%}%>

@@ -22,11 +22,7 @@ const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
 const TOKEN_PATH = 'token.json';
 
 // Load client secrets from a local file.
-fs.readFile('credentials.json', (err, content) => {
-  if (err) return console.log('Error loading client secret file:', err);
-  // Authorize a client with credentials, then call the Google Calendar API.
-  authorize(JSON.parse(content), listEvents);
-});
+
 
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
@@ -141,18 +137,12 @@ app.set("view engine", "ejs");
 
 
 app.get("/", (req, res) => {
-  let url = "https://www.googleapis.com/calendar/v3/calendars/alois.clerc@gmail.com/events/eventId";
-
-  request(url, (error, response, body) => {
-
-    if (!error && response.statusCode == 200) {
-      parsedResult = JSON.parse(body);
-      console.log(parsedResult);
-      // res.send(parsedResult["Search"][0]["Title"]);
-    }
-  })
-  //apikey=AIzaSyBy74-kyDlOgV9COJjINbYF_4rBbzA5Xb0
-  //blogID=1781114122937363139
+  fs.readFile('credentials.json', (err, content) => {
+    if (err) return console.log('Error loading client secret file:', err);
+    // Authorize a client with credentials, then call the Google Calendar API.
+    authorize(JSON.parse(content), listEvents);
+  });
+  
   res.render("landing", {
     eventList: eventList,
     eventDate: eventDate,
@@ -187,7 +177,8 @@ app.get("/newOrg", (req, res) => {
 
 app.get("/blog", (req, res) => {
 
-  url = "https://www.googleapis.com/blogger/v3/blogs/2519708553400588558/posts?key=AIzaSyBy74-kyDlOgV9COJjINbYF_4rBbzA5Xb0";
+  url = process.env.BLOGGER_API_KEY;
+  console.log(process.env.BLOGGER_API_KEY)
 
   request(url, (error, response, body) => {
     if (!error && response.statusCode == 200) {
@@ -196,7 +187,7 @@ app.get("/blog", (req, res) => {
       res.render("blog", {
         parsedResult: parsedResult
       });
-      // res.send(parsedResult["Search"][0]["Title"]);
+
     }
   })
 });

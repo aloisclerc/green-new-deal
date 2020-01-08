@@ -77,6 +77,11 @@ function getAccessToken(oAuth2Client, callback) {
     });
   });
 }
+fs.readFile('credentials.json', (err, content) => {
+  if (err) return console.log('Error loading client secret file:', err);
+  // Authorize a client with credentials, then call the Google Calendar API.
+  authorize(JSON.parse(content), listEvents);
+});
 
 /**
  * Lists the next 10 events on the user's primary calendar.
@@ -149,6 +154,10 @@ app.get("/", (req, res) => {
     eventLocation: eventLocation,
     eventTime: eventTime
   });
+  eventList = [];
+  eventDate = [];
+  eventTime = [];
+  eventLocation = [];
 });
 
 app.get("/proposals", (req, res) => {

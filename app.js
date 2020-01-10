@@ -83,6 +83,17 @@ fs.readFile('credentials.json', (err, content) => {
   authorize(JSON.parse(content), listEvents);
 });
 
+function convertUTCDateToLocalDate(date) {
+  var newDate = new Date(date.getTime()+date.getTimezoneOffset()*60*1000);
+
+  var offset = date.getTimezoneOffset() / 60;
+  var hours = date.getHours();
+
+  newDate.setHours(hours - offset);
+
+  return newDate;   
+}
+
 /**
  * Lists the next 10 events on the user's primary calendar.
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
@@ -112,17 +123,19 @@ function listEvents(auth) {
         eventList.push(`${event.summary}`);
         // eventDate.push(`${date}`);
         var date = new Date(Date.parse(start));
+        date = convertUTCDateToLocalDate(date);
         var dateEnd = new Date(Date.parse(end));
+        dateEnd = convertUTCDateToLocalDate(dateEnd);
         eventDate.push(date.toDateString());
         eventLocation.push(location);
         if (date.getMinutes() < 10 && dateEnd.getMinutes() < 10) {
-          eventTime.push(String(date.getHours() - 5) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours() - 5) + ":" + String(dateEnd.getMinutes()) + "0")
+          eventTime.push(String(date.getHours()) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours()) + ":" + String(dateEnd.getMinutes()) + "0")
         } else if (date.getMinutes() < 10) {
-          eventTime.push(String(date.getHours() - 5) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours() - 5) + ":" + String(dateEnd.getMinutes()))
+          eventTime.push(String(date.getHours()) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours()) + ":" + String(dateEnd.getMinutes()))
         } else if (dateEnd.getMinutes() < 10) {
-          eventTime.push(String(date.getHours() - 5) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours() - 5) + ":" + String(dateEnd.getMinutes()) + "0")
+          eventTime.push(String(date.getHours()) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours()) + ":" + String(dateEnd.getMinutes()) + "0")
         } else {
-          eventTime.push(String(date.getHours() - 5) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours() - 5) + ":" + String(dateEnd.getMinutes()))
+          eventTime.push(String(date.getHours()) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours()) + ":" + String(dateEnd.getMinutes()))
         }
 
       });
@@ -187,7 +200,6 @@ app.get("/newOrg", (req, res) => {
 app.get("/blog", (req, res) => {
 
   url = process.env.BLOGGER_API_KEY;
-  console.log(process.env.BLOGGER_API_KEY)
 
   request(url, (error, response, body) => {
     if (!error && response.statusCode == 200) {

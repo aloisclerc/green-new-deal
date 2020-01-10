@@ -132,7 +132,7 @@ function listEvents(auth) {
         var dateEnd = new Date(Date.parse(end));
 
         dateEnd = convertUTCDateToLocalDate(dateEnd);
-        eventDate.push(new Date(start).toDateString());
+        eventDate.push(date.toDateString());
         eventLocation.push(location);
         if (date.getMinutes() < 10 && dateEnd.getMinutes() < 10) {
           eventTime.push(String(date.getHours()) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours()) + ":" + String(dateEnd.getMinutes()) + "0")

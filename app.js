@@ -84,9 +84,9 @@ fs.readFile('credentials.json', (err, content) => {
 });
 
 function convertUTCDateToLocalDate(date) {
-  var newDate = new Date(date.getTime()+date.getTimezoneOffset()*60*1000);
+  var newDate = new Date(date.getTime()+5*60*1000);
 
-  var offset = date.getTimezoneOffset() / 60;
+  var offset = 5 / 60;
   var hours = date.getHours();
 
   newDate.setHours(hours - offset);

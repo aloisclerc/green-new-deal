@@ -84,14 +84,14 @@ fs.readFile('credentials.json', (err, content) => {
 });
 
 function convertUTCDateToLocalDate(date) {
-  var newDate = new Date(date.getTime()-300*60*1000);
+  var newDate = new Date(date.getTime() - 300 * 60 * 1000);
   console.log("New Date: " + newDate);
   var offset = 300 / 60;
   var hours = date.getHours();
 
   newDate.setHours(hours - offset);
 
-  return newDate;   
+  return newDate;
 }
 
 /**
@@ -128,11 +128,16 @@ function listEvents(auth) {
 
         // var date = new Date(Date.parse(start));
         // date = convertUTCDateToLocalDate(date);
-        console.log("Date: "+ date.toDateString()+ "Hours: " + date.getHours())
+        console.log("Date: " + date.toDateString() + "Hours: " + date.getHours())
         var dateEnd = new Date(Date.parse(end));
 
         dateEnd = convertUTCDateToLocalDate(dateEnd);
-        eventDate.push(date);
+        if (date.getHours > 18) {
+          eventDate.push(new Date(Date.parse(date)-86400000).toDateString);
+
+        } else {
+          eventDate.push(date.toDateString);
+        }
         eventLocation.push(location);
         if (date.getMinutes() < 10 && dateEnd.getMinutes() < 10) {
           eventTime.push(String(date.getHours()) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours()) + ":" + String(dateEnd.getMinutes()) + "0")
@@ -166,7 +171,7 @@ app.get("/", (req, res) => {
     // Authorize a client with credentials, then call the Google Calendar API.
     authorize(JSON.parse(content), listEvents);
   });
-  
+
   res.render("landing", {
     eventList: eventList,
     eventDate: eventDate,

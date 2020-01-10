@@ -85,7 +85,7 @@ fs.readFile('credentials.json', (err, content) => {
 
 function convertUTCDateToLocalDate(date) {
   var newDate = new Date(date.getTime()+300*60*1000);
-
+  console.log("New Date: " + newDate);
   var offset = 300 / 60;
   var hours = date.getHours();
 
@@ -117,19 +117,22 @@ function listEvents(auth) {
       console.log('Upcoming 10 events:');
       events.map((event, i) => {
         let start = event.start.dateTime;
+        console.log(event.start.dateTime)
+
         let end = event.end.dateTime;
         let location = event.location;
         const summary = event.summary;
         eventList.push(`${event.summary}`);
         // eventDate.push(`${date}`);
-        var date = new Date(Date.parse(start));
-        console.log(date + " UTC")
-        date = convertUTCDateToLocalDate(date);
+        var date = convertUTCDateToLocalDate(new Date(start));
+
+        // var date = new Date(Date.parse(start));
+        // date = convertUTCDateToLocalDate(date);
         console.log("Date: "+ date+ "Hours: " + date.getHours())
         var dateEnd = new Date(Date.parse(end));
 
         dateEnd = convertUTCDateToLocalDate(dateEnd);
-        eventDate.push(date.toDateString());
+        eventDate.push(new Date(start).toDateString());
         eventLocation.push(location);
         if (date.getMinutes() < 10 && dateEnd.getMinutes() < 10) {
           eventTime.push(String(date.getHours()) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours()) + ":" + String(dateEnd.getMinutes()) + "0")

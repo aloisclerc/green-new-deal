@@ -134,7 +134,7 @@ function listEvents(auth) {
         dateEnd = convertUTCDateToLocalDate(dateEnd);
         
         if(date.getHours() > 18) {
-          eventDate.push(new Date(Date.parse(date)-86400000).toDateString()+"aaa");
+          eventDate.push(new Date(Date.parse(date)+86400000).toDateString());
 
         } else {
           eventDate.push(date.toDateString());

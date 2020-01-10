@@ -123,8 +123,11 @@ function listEvents(auth) {
         eventList.push(`${event.summary}`);
         // eventDate.push(`${date}`);
         var date = new Date(Date.parse(start));
+        console.log(date + " UTC")
         date = convertUTCDateToLocalDate(date);
+        console.log("Date: "+ date+ "Hours: " + date.getHours())
         var dateEnd = new Date(Date.parse(end));
+
         dateEnd = convertUTCDateToLocalDate(dateEnd);
         eventDate.push(date.toDateString());
         eventLocation.push(location);

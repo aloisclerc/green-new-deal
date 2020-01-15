@@ -163,6 +163,18 @@ function listEvents(auth) {
 app.use("/public", express.static("public"));
 app.set("view engine", "ejs");
 
+function enforceHttps(req, res, next) {
+  if (!req.secure &&
+    req.get("x-forwarded-proto") !== "https" &&
+    process.env.NODE_ENV === "production") {
+    res.redirect(301, `https://${req.get("host")}${req.url}`);
+  } else {
+    next();
+  }
+}
+
+app.use(enforceHttps);
+
 
 
 

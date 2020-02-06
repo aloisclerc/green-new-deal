@@ -236,7 +236,7 @@ ul {
 
 .event {
     border-bottom: 1px solid #ddd;
-    width: 70%;
+    width: 72%;
     margin: 2% 15% 2% 15%;
     float: center;
     border-radius: 5px;
@@ -258,6 +258,9 @@ ul {
     text-align: right;
 }
 
+.eventLocation {
+    text-align: right;
+}
 
 #contactPhoto {
     height: 10%;

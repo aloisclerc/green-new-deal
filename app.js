@@ -4,8 +4,10 @@ const fs = require('fs');
 const readline = require('readline');
 let eventList = [];
 let eventDate = [];
+let eventEndDate = [];
 let eventTime = [];
 let eventLocation = [];
+let eventDescription = [];
 
 
 
@@ -123,31 +125,35 @@ function listEvents(auth) {
         let location = event.location;
         const summary = event.summary;
         eventList.push(`${event.summary}`);
+        eventDescription.push(`${event.description}`);
+
         // eventDate.push(`${date}`);
         var date = convertUTCDateToLocalDate(new Date(start));
 
         // var date = new Date(Date.parse(start));
         // date = convertUTCDateToLocalDate(date);
-        console.log("Date: " + date.toDateString() + "Hours: " + date.getHours())
+        console.log(event);
         var dateEnd = new Date(Date.parse(end));
 
         dateEnd = convertUTCDateToLocalDate(dateEnd);
         
         if(date.getHours() > 18) {
           eventDate.push(new Date(Date.parse(date)+86400000).toDateString());
+          eventEndDate.push(new Date(Date.parse(dateEnd)+86400000).toDateString());
 
         } else {
           eventDate.push(date.toDateString());
+          eventEndDate.push(dateEnd.toDateString());
         }
         eventLocation.push(location);
         if (date.getMinutes() < 10 && dateEnd.getMinutes() < 10) {
-          eventTime.push(String(date.getHours()) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours()) + ":" + String(dateEnd.getMinutes()) + "0")
+          eventTime.push(String(date.getHours()+1) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours()+1) + ":" + String(dateEnd.getMinutes()) + "0")
         } else if (date.getMinutes() < 10) {
-          eventTime.push(String(date.getHours()) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours()) + ":" + String(dateEnd.getMinutes()))
+          eventTime.push(String(date.getHours()+1) + ":" + String(date.getMinutes()) + "0-" + String(dateEnd.getHours()+1) + ":" + String(dateEnd.getMinutes()))
         } else if (dateEnd.getMinutes() < 10) {
-          eventTime.push(String(date.getHours()) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours()) + ":" + String(dateEnd.getMinutes()) + "0")
+          eventTime.push(String(date.getHours()+1) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours()+1) + ":" + String(dateEnd.getMinutes()) + "0")
         } else {
-          eventTime.push(String(date.getHours()) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours()) + ":" + String(dateEnd.getMinutes()))
+          eventTime.push(String(date.getHours()+1) + ":" + String(date.getMinutes()) + "-" + String(dateEnd.getHours()+1) + ":" + String(dateEnd.getMinutes()))
         }
 
       });
@@ -189,12 +195,16 @@ app.get("/", (req, res) => {
     eventList: eventList,
     eventDate: eventDate,
     eventLocation: eventLocation,
-    eventTime: eventTime
+    eventTime: eventTime,
+    eventEndDate: eventEndDate,
+    eventDescription: eventDescription
   });
   eventList = [];
   eventDate = [];
   eventTime = [];
   eventLocation = [];
+  eventEndDate = [];
+  eventDescription = [];
 });
 
 app.get("/proposals", (req, res) => {

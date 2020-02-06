@@ -173,14 +173,19 @@
 
         <%for(let i = 0; i < eventList.length; i++){%>
         <div class="row d-flex justify-content-between event">
-            <div class="col-sm-3">
-                <p class="eventDate"><%=eventDate[i]%></p>
+            <div class="col-sm-4">
+                <p class="eventDate"><%=eventDate[i]%> -</p>
+                <p class="eventDate"><%=eventEndDate[i]%></p>
+                <br>
                 <p class="eventTime"><%=eventTime[i]%></p>
             </div>
-            <div class="eventDetails col-sm-9">
+            <div class="eventDetails col-sm-8">
                 <p class="eventList"><%=eventList[i]%></p>
                 <p class="eventLocation"><%=eventLocation[i]%></p>
+                
             </div>
+            <p class="eventDescription px-3"><%-eventDescription[i]%></p>
+
         </div>
 
         <%}%>

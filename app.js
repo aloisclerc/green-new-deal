@@ -139,11 +139,16 @@ function listEvents(auth) {
         
         if(date.getHours() > 18) {
           eventDate.push(new Date(Date.parse(date)+86400000).toDateString());
-          eventEndDate.push(new Date(Date.parse(dateEnd)+86400000).toDateString());
+          
 
         } else {
           eventDate.push(date.toDateString());
+        }
+        if(dateEnd.getHours() > 18) {
+          eventEndDate.push(new Date(Date.parse(dateEnd)+86400000).toDateString());
+        } else {
           eventEndDate.push(dateEnd.toDateString());
+
         }
         eventLocation.push(location);
         if (date.getMinutes() < 10 && dateEnd.getMinutes() < 10) {

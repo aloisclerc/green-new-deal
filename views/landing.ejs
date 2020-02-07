@@ -12,16 +12,17 @@
             <div class="col-sm-8 p-0 mt-5">
                 <h2>Who are we?</h2>
                 <hr class="divider my-4">
-                <p class="body-text">We are a group of individuals who, like you, are concerned about the impact of the climate crisis 
+                <p class="body-text">We are a group of individuals who, like you, are concerned about the impact of the
+                    climate crisis
                     on our communities, our planet, and our collective futures.
                     <br>
                     <br>
-                    A number of us are active as volunteers or employees of local groups focused on environmental 
-                    and social justice issues, and we have come together to envision, build, and advocate for a 
-                    better future for future generations in Ottawa. 
+                    A number of us are active as volunteers or employees of local groups focused on environmental
+                    and social justice issues, and we have come together to envision, build, and advocate for a
+                    better future for future generations in Ottawa.
                     <br>
                     <br>
-                    We believe Ottawa needs a Green New Deal, and we are joining together in a coalition with 
+                    We believe Ottawa needs a Green New Deal, and we are joining together in a coalition with
                     like-minded organizations and individuals to make it a reality.
                 </p>
                 <button class="collapsible d-flex">
@@ -173,17 +174,21 @@
 
         <%for(let i = 0; i < eventList.length; i++){%>
         <div class="row d-flex justify-content-between event">
-            <div class="col-sm-3">
-                <p class="eventDate"><%=eventDate[i]%> -</p>
-                <p class="eventDate"><%=eventEndDate[i]%></p>
+            <div class="col-sm-4 pr-0">
+                <%if(eventDate[i] != eventEndDate[i]){%>
+                <p class="eventDate"><%=eventDate[i]%> <%=eventTime[i].slice(0,5)%> -</p>
+                <p class="eventDate"><%=eventEndDate[i]%> <%=eventTime[i].slice(6)%></p>
                 <br>
+                <%} else {%>
+                <p class="eventDate"><%=eventDate[i]%></p>
                 <p class="eventTime"><%=eventTime[i]%></p>
+
+                <% } %>
             </div>
-            <div class="eventDetails col-sm-9">
+            <div class="eventDetails col-sm-8 pl-0">
                 <p class="eventList"><%=eventList[i]%></p>
-                <br>
                 <p class="eventLocation"><%=eventLocation[i]%></p>
-                
+
             </div>
             <p class="eventDescription px-3"><%-eventDescription[i]%></p>
 

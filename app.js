@@ -1,4 +1,5 @@
 const express = require("express");
+const robots = require("express-robots-txt")
 const app = express();
 const fs = require('fs');
 const readline = require('readline');
@@ -119,7 +120,6 @@ function listEvents(auth) {
       console.log('Upcoming 10 events:');
       events.map((event, i) => {
         let start = event.start.dateTime;
-        console.log(event.start.dateTime)
 
         let end = event.end.dateTime;
         let location = event.location;
@@ -132,7 +132,6 @@ function listEvents(auth) {
 
         // var date = new Date(Date.parse(start));
         // date = convertUTCDateToLocalDate(date);
-        console.log(event);
         var dateEnd = new Date(Date.parse(end));
 
         dateEnd = convertUTCDateToLocalDate(dateEnd);
@@ -170,7 +169,8 @@ function listEvents(auth) {
 }
 
 
-
+app.use(robots(__dirname + '/robots.txt'));
+app.use(robots({UserAgent: '*', Allow: '/'}))
 app.use("/public", express.static("public"));
 app.set("view engine", "ejs");
 
